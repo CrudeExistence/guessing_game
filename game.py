@@ -29,7 +29,8 @@ def game():
                 again = again.lower()
                 
                 if again == 'y':
-                    game()
+                    print("Let's get started!")
+                    game_time()
                 else:
                     exit()
 
