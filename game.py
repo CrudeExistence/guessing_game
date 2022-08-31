@@ -17,10 +17,40 @@ def game():
         number = random.randint(0, 100)
 
         def game_time():
-            guess = input("What number am I thinking of?\n")
-            guess = int(guess)
+            # guess = input("What number am I thinking of?\n")
+            guess = None
             global guesses
 
+            # How to write the the program with a while statement.
+            while guess != number:
+                guesses = guesses + 1
+                print(guesses)
+                guess = input("What number am I thinking of?\n")
+                guess = int(guess)
+
+                if guess == number:
+                    print(f"That's my number! You guessed it!\nIt took you {str(guesses)} guesses to get it.")
+                    guesses = 0
+                    again = input("\nWould you like to play again? Y/N\n")
+                    again = again.lower()
+                    
+                    if again == 'y':
+                        print("Let's get started!")
+                        game_time()
+                    else:
+                        exit()
+
+                elif guess < 1 or guess > 100:
+                    print("The number is between 1-100. Choose a correct number\n")
+                
+                elif guess > number:
+                        print("You guessed a number that's too high")
+                else:
+                        print("You guessd a number that's too low")
+                        
+
+
+            '''#! -- How to write the format using if else statements
             if guess == number:
                 guesses = guesses + 1
                 print(f"That's my number! You guessed it!\nIt took you {str(guesses)} guesses to get it.")
@@ -47,7 +77,7 @@ def game():
                     print("You guessd a number that's too low")
                     guesses = guesses + 1
                     game_time()
-
+                    '''
 
 
 
